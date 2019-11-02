@@ -10,8 +10,8 @@ df <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytue
 
 # if tail twitching is a sign of happiness, then on whic day fo th emonth are they happiest?
 
-# pull MYC weather data for observations 
-# weather <- riem_measures("NYC", date_start = "2018-10-06", date_end = "2018-10-21")
+# pull NYC weather data for observations 
+weather <- riem_measures("NYC", date_start = "2018-10-06", date_end = "2018-10-21")
 
 # extract day, create summary of mean temp each day in NYC
 # tmpf is Air Temp in F, typically at 2 meters
@@ -67,5 +67,5 @@ plot <- ggplot(df, aes(x = mean_temp, y = happy_quo, fill = happy_quo < 0)) +
         legend.text = element_text(size = 12))
 
 
-ggsave('happiness_plot.tiff', plot, height = 5, width = 9, units= 'in', dpi = 'print')
+ggsave('happiness_plot.tiff', plot, height = 5, width = 9, units= 'in', dpi = 150)
 
