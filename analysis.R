@@ -2,13 +2,10 @@ library(tidyverse)
 library(skimr)
 library(lubridate)
 library(riem)
-library(ggpubr)
+
 
 # data from TidyTuesday
 df <- readr::read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2019/2019-10-29/nyc_squirrels.csv")
-
-
-# if tail twitching is a sign of happiness, then on whic day fo th emonth are they happiest?
 
 # pull NYC weather data for observations 
 weather <- riem_measures("NYC", date_start = "2018-10-06", date_end = "2018-10-21")
@@ -67,5 +64,5 @@ plot <- ggplot(df, aes(x = mean_temp, y = happy_quo, fill = happy_quo < 0)) +
         legend.text = element_text(size = 12))
 
 
-ggsave('happiness_plot.tiff', plot, height = 5, width = 9, units= 'in', dpi = 150)
+ggsave('happiness_plot.tiff', plot, height = 5, width = 9, units= 'in', dpi = 200)
 
