@@ -44,7 +44,7 @@ df <- df %>%
 # plot happy_quo by temp
 plot <- ggplot(df, aes(x = mean_temp, y = happy_quo, fill = happy_quo < 0)) +
   geom_col() +
-  scale_fill_manual(breaks = c(TRUE, FALSE), labels = c("positive", "negative"), values=c("blue", "red"))+
+  scale_fill_manual(breaks = c(TRUE, FALSE), labels = c("negative", "positive"), values=c("blue", "red"))+
   labs(x = "Mean temperature (Fahrenheit)",
        y = "Happiness Quotient (Happy : Unhappy)\n", 
        title = "Happiness in NYC Squirrels v. Average Daily Temperature",
@@ -62,7 +62,6 @@ plot <- ggplot(df, aes(x = mean_temp, y = happy_quo, fill = happy_quo < 0)) +
         legend.position = "top", 
         legend.title = element_text(size = 12),
         legend.text = element_text(size = 12))
-
 
 ggsave('happiness_plot.tiff', plot, height = 5, width = 9, units= 'in', dpi = 200)
 
